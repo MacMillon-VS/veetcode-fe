@@ -1,6 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const LanguageSelection = ({ languages, selectedLanguage, onLanguageSelect }) => {
+const LanguageSelection = ({
+  languages,
+  selectedLanguage,
+  onLanguageSelect,
+}) => {
   const handleLanguageSelect = (language) => {
     onLanguageSelect(language);
   };
@@ -12,7 +16,9 @@ const LanguageSelection = ({ languages, selectedLanguage, onLanguageSelect }) =>
         {languages.map((language) => (
           <button
             key={language}
-            className={`language-button ${selectedLanguage === language ? 'active' : ''}`}
+            className={`language-button ${
+              selectedLanguage === language ? "active" : ""
+            }`}
             onClick={() => handleLanguageSelect(language)}
           >
             {language}

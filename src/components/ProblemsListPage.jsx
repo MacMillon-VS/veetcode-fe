@@ -9,7 +9,10 @@ const ProbmlemsListPage = ({ problems }) => {
 
   const indexOfLastProblem = currentPage * problemsPerPage;
   const indexOfFirstProblem = indexOfLastProblem - problemsPerPage;
-  const currentProblems = problems.slice(indexOfFirstProblem, indexOfLastProblem);
+  const currentProblems = problems.slice(
+    indexOfFirstProblem,
+    indexOfLastProblem
+  );
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -33,8 +36,20 @@ const ProbmlemsListPage = ({ problems }) => {
               <Link to={`/problems/${problem.problemId}`} className="link">
                 <td>{problem.title}</td>
               </Link>
-              <td style={{ color: problem.difficulty === 'Easy' ? 'green' : problem.difficulty === 'Medium' ? 'orange' : problem.difficulty === 'Hard' ? 'red' : '' }}>
-                {problem.difficulty}</td>
+              <td
+                style={{
+                  color:
+                    problem.difficulty === "Easy"
+                      ? "green"
+                      : problem.difficulty === "Medium"
+                      ? "orange"
+                      : problem.difficulty === "Hard"
+                      ? "red"
+                      : "",
+                }}
+              >
+                {problem.difficulty}
+              </td>
               {/* {<TaskComponent diff={problem.difficulty}/>} */}
               <td>{problem.acceptance}</td>
             </tr>
@@ -42,11 +57,11 @@ const ProbmlemsListPage = ({ problems }) => {
         </tbody>
       </table>
       <Pagination
-            currentPage={currentPage}
-            totalPages={Math.ceil(problems.length / problemsPerPage)}
-            onPageChange={handlePageChange}
-          />
+        currentPage={currentPage}
+        totalPages={Math.ceil(problems.length / problemsPerPage)}
+        onPageChange={handlePageChange}
+      />
     </div>
-  )
-}
+  );
+};
 export default ProbmlemsListPage;
